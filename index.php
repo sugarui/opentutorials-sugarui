@@ -78,6 +78,13 @@ if(!empty($_GET['id'])) {
         h1 {
             font-size:1.4em;
         }
+        /*php테스트 스타일*/
+       .bbb{
+       	color:black;
+    	}
+    	.aaa{
+    		color:red;
+    	}  
     </style>
     </head>
   
@@ -95,9 +102,31 @@ if(!empty($_GET['id'])) {
                     <?php
                     $sql="select id,title from topic";
                     $result=mysql_query($sql);
-                    while($row=mysql_fetch_assoc($result)) {
-                    echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
-                    }
+					//원래문구
+                    // while($row=mysql_fetch_assoc($result)) {
+                    // echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
+                    //신규문구 01. 셀렉트가 작용하지만 if값이 있으면 else를 실행하지 않아 나머지 메뉴들이 없어져버린다.         
+						while($row=mysql_fetch_assoc($result)) {
+          					if ( $row['id'] == $_GET['id'] ){
+          						echo "
+          							<li> 
+                        				<a href=\"?id={$row['id']}\">
+                             				셀렉트 {$row['title']}</div>
+                        				</a>
+                   				</li>  				
+             					"
+              					;
+          					} else {
+              				echo "
+          							<li>
+                        				<a href=\"?id={$row['id']}\">
+                             			{$row['title']}
+                        				</a>
+                   				</li>  				
+             					"
+              					;
+							}
+    				}
                     ?>
                 </ul>
             </nav>
