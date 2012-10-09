@@ -105,22 +105,22 @@ if(!empty($_GET['id'])) {
 					//원래문구
                     // while($row=mysql_fetch_assoc($result)) {
                     // echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
-                    //신규문구 01. 셀렉트가 작용하지만 if값이 있으면 else를 실행하지 않아 나머지 메뉴들이 없어져버린다.         
+                    //신규문구 01. 셀렉트가 작용하지만 if값이 있으면 else를 실행하지 않아 문제발생         
 						while($row=mysql_fetch_assoc($result)) {
           					if ( $row['id'] == $_GET['id'] ){
           						echo "
           							<li> 
                         				<a href=\"?id={$row['id']}\">
-                             				셀렉트 {$row['title']}</div>
+                             				'셀렉트' {$row['title']}</div>
                         				</a>
                    				</li>  				
              					"
               					;
-          					} else {
+          					} else if (! $row['id'] == $_GET['id'] ) {
               				echo "
           							<li>
                         				<a href=\"?id={$row['id']}\">
-                             			{$row['title']}
+                             				'안셀렉트'{$row['title']}
                         				</a>
                    				</li>  				
              					"
