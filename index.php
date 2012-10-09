@@ -91,7 +91,9 @@ if(!empty($_GET['id'])) {
     <body id="body">
         <div>
             <header>
-                <h1>JavaScript</h1>
+                <h1>
+                	<a href=./index.php>사이트제목(홈으로복귀)</a>
+                </h1>
             </header>
             <div id="toolbar">
                 <input type="button" value="black" onclick="document.getElementById('body').className='black'" />
@@ -115,7 +117,7 @@ if(!empty($_GET['id'])) {
                         				</a>
                    				</li>  				
              					"
-              					;
+								;
           					} else if (! $row['id'] == $_GET['id'] ) {
               				echo "
           							<li>
@@ -125,7 +127,7 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
               					;
-							}
+							} 
     				}
                     ?>
                 </ul>
