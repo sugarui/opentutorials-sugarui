@@ -118,7 +118,8 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
 								;
-          					} // else if (! $row['id'] == $_GET['id'] ) {
+								continue;
+          					} 
               				echo "
           							<li>
                         				<a href=\"?id={$row['id']}\">
@@ -127,7 +128,8 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
               					;
-							//} 
+								continue;
+							 
     				}
                     ?>
                 </ul>

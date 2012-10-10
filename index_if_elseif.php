@@ -118,6 +118,7 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
 								;
+								continue;
           					} else if (! $row['id'] == $_GET['id'] ) {
               				echo "
           							<li>
@@ -127,6 +128,7 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
               					;
+								continue;
 							} 
     				}
                     ?>

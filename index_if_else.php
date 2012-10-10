@@ -118,6 +118,7 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
 								;
+								continue;
           					} else {
               				echo "
           							<li>
@@ -127,6 +128,7 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
               					;
+								continue;
 							} 
     				}
                     ?>
