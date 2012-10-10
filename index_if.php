@@ -92,7 +92,7 @@ if(!empty($_GET['id'])) {
         <div>
             <header>
                 <h1>
-                	<a href=./index.php>사이트제목(홈으로복귀)</a>
+                	<a href=./index_if.php>if만 한 버전 (메인으로 복귀하려면 클릭)</a>
                 </h1>
             </header>
             <div id="toolbar">
@@ -118,16 +118,16 @@ if(!empty($_GET['id'])) {
                    				</li>  				
              					"
 								;
-          					} else {
+          					} // else if (! $row['id'] == $_GET['id'] ) {
               				echo "
           							<li>
                         				<a href=\"?id={$row['id']}\">
-                             				'안셀렉트'{$row['title']}
+                             				'안셀렉트' {$row['title']}
                         				</a>
                    				</li>  				
              					"
               					;
-							} 
+							//} 
     				}
                     ?>
                 </ul>
