@@ -91,9 +91,19 @@ if(!empty($_GET['id'])) {
     <body id="body">
         <div>
             <header>
+            	  
                 <h1>
-                	<a href=./index_if_else.php>if하고 else한 버전 (메인으로 복귀하려면 클릭)</a>
+                  테스트 02. if로 현메뉴 선택후 else로 나머지메뉴 : 나머지가 오른쪽에 표시됨
                 </h1>
+                
+                <a href="index_if_else.php" style="color:blue; display:inline;">
+                	(버전 초기화하기)
+				  </a>
+				  <br/>
+                <a href="index.php" style="color:blue; display:inline;">
+           			(테스트 목록 돌아가기)
+           	  </a>
+                
             </header>
             <div id="toolbar">
                 <input type="button" value="black" onclick="document.getElementById('body').className='black'" />
@@ -107,7 +117,7 @@ if(!empty($_GET['id'])) {
 					//원래문구
                     // while($row=mysql_fetch_assoc($result)) {
                     // echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
-                    //신규문구 01. 셀렉트가 작용하지만 if값이 있으면 else를 실행하지 않아 문제발생         
+                    //신규문구      
 						while($row=mysql_fetch_assoc($result)) {
           					if ( $row['id'] == $_GET['id'] ){
           						echo "
