@@ -91,23 +91,18 @@ if(!empty($_GET['id'])) {
     <body id="body">
         <div>
             <header>
+            	  
                 <h1>
-                	<a href="index.php">사이트제목: php - 현메뉴 표시기능 테스트</a><br/><br/>
+                  테스트 02. if로 현메뉴 선택후 else로 나머지메뉴 : 나머지가 오른쪽에 표시됨
                 </h1>
-                <div>
-                	<a href="index_if.php" target="_blank">
-                		<div style="color:blue;">테스트 01. if로 현메뉴 선택후 나머지메뉴 : 나머지가 오른쪽에 표시됨 ▶</div>
-                	</a>
-                	<a href="index_if_else.php" target="_blank">
-                		<div style="color:blue;">테스트 02. if로 현메뉴 선택후 else로 나머지메뉴 : 나머지가 오른쪽에 표시됨 ▶</div>
-                	</a>
-                	<a href="index_if_elseif.php" target="_blank">
-                		<div style="color:blue;">테스트 03. if로 현메뉴 선택후 else if로 나머지메뉴 : 나머지가 안나옴 ▶</div>
-                	</a>
-                </div>
                 
-                <br/>
-                  아래는 현재메뉴 표시기능이 없는 오리지널
+                <a href="index_if_else.php" style="color:blue; display:inline;">
+                	(버전 초기화하기)
+				  </a>
+				  <br/>
+                <a href="index.php" style="color:blue; display:inline;">
+           			(테스트 목록 돌아가기)
+           	  </a>
                 
             </header>
             <div id="toolbar">
@@ -119,10 +114,32 @@ if(!empty($_GET['id'])) {
                     <?php
                     $sql="select id,title from topic";
                     $result=mysql_query($sql);
-                    while($row=mysql_fetch_assoc($result)) {
-                    echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
-					   }
-                       ?>
+					//원래문구
+                    // while($row=mysql_fetch_assoc($result)) {
+                    // echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
+                    //신규문구      
+						while($row=mysql_fetch_assoc($result)) {
+          					if ( $row['id'] == $_GET['id'] ){
+          						echo "
+          							<li> 
+                        				<a href=\"?id={$row['id']}\">
+                             				'셀렉트' {$row['title']}
+                        				</a>
+                   				</li>  				
+             					"
+								;
+          					} else {
+              				echo "
+          							<li>
+                        				<a href=\"?id={$row['id']}\">
+                             				'안셀렉트'{$row['title']}
+                        				</a>
+                   				</li>  				
+             					"
+              					;
+							} 
+    				}
+                    ?>
                 </ul>
             </nav>
             <article>
